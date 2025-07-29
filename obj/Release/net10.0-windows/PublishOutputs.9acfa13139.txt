@@ -1,0 +1,5 @@
+d:\Documents\Visual Studio 2022\PassGen-10Prv\bin\Release\net10.0-windows\publish\PassGen-10Prv.exe
+d:\Documents\Visual Studio 2022\PassGen-10Prv\bin\Release\net10.0-windows\publish\PassGen-10Prv.dll
+d:\Documents\Visual Studio 2022\PassGen-10Prv\bin\Release\net10.0-windows\publish\PassGen-10Prv.deps.json
+d:\Documents\Visual Studio 2022\PassGen-10Prv\bin\Release\net10.0-windows\publish\PassGen-10Prv.runtimeconfig.json
+d:\Documents\Visual Studio 2022\PassGen-10Prv\bin\Release\net10.0-windows\publish\PassGen-10Prv.pdb
