@@ -46,9 +46,10 @@
             // 
             TxtPassword_10Prv.BorderStyle = BorderStyle.FixedSingle;
             TxtPassword_10Prv.Enabled = false;
+            TxtPassword_10Prv.Font = new Font("Courier New", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtPassword_10Prv.Location = new Point(39, 22);
             TxtPassword_10Prv.Name = "TxtPassword_10Prv";
-            TxtPassword_10Prv.Size = new Size(722, 23);
+            TxtPassword_10Prv.Size = new Size(722, 68);
             TxtPassword_10Prv.TabIndex = 0;
             TxtPassword_10Prv.TabStop = false;
             TxtPassword_10Prv.Text = "PassWord";

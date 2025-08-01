@@ -20,12 +20,12 @@ namespace PassGen_10Prv
                 bolUpper = true;
                 BtnGen_10Prv.Enabled = true;
                 BtnGen_10Prv.Text = "重新生成随机密码(&G)";
-                EnableChkBox();
+                EnableChkBoxes();
             }
             else
             {
                 bolUpper = false;
-                DisableChkBox(bolUpper, bolLower, bolNum, bolOth);
+                DisableChkBoxes(bolUpper, bolLower, bolNum, bolOth);
             }
         }
 
@@ -36,12 +36,12 @@ namespace PassGen_10Prv
                 bolLower = true;
                 BtnGen_10Prv.Enabled = true;
                 BtnGen_10Prv.Text = "重新生成随机密码(&G)";
-                EnableChkBox();
+                EnableChkBoxes();
             }
             else
             {
                 bolLower = false;
-                DisableChkBox(bolUpper, bolLower, bolNum, bolOth);
+                DisableChkBoxes(bolUpper, bolLower, bolNum, bolOth);
             }
         }
 
@@ -52,12 +52,12 @@ namespace PassGen_10Prv
                 bolNum = true;
                 BtnGen_10Prv.Enabled = true;
                 BtnGen_10Prv.Text = "重新生成随机密码(&G)";
-                EnableChkBox();
+                EnableChkBoxes();
             }
             else
             {
                 bolNum = false;
-                DisableChkBox(bolUpper, bolLower, bolNum, bolOth);
+                DisableChkBoxes(bolUpper, bolLower, bolNum, bolOth);
             }
         }
 
@@ -69,14 +69,14 @@ namespace PassGen_10Prv
                 TxtOthers_10Prv.Enabled = true;
                 BtnGen_10Prv.Enabled = true;
                 BtnGen_10Prv.Text = "重新生成随机密码(&G)";
-                EnableChkBox();
+                EnableChkBoxes();
             }
             else
             {
                 bolOth = false;
                 TxtOthers_10Prv.Enabled = false;
                 BtnResetOth_10Prv.Enabled = false;
-                DisableChkBox(bolUpper, bolLower, bolNum, bolOth);
+                DisableChkBoxes(bolUpper, bolLower, bolNum, bolOth);
             }
         }
 
@@ -84,9 +84,10 @@ namespace PassGen_10Prv
         {
             bool bolInclNonOthers = false;
             char[] chars =
-                {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                '1','2','3','4','5','6','7','8','9','0',' '
+                {
+                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+                    '1','2','3','4','5','6','7','8','9','0',' '
                 };
             for (int j = 0; j < TxtOthers_10Prv.Text.Length; j++)
             {
@@ -114,19 +115,19 @@ namespace PassGen_10Prv
                     subStrStringOthers = TxtOthers_10Prv.Text;//其他字符
                 string subCharUpper, subCharLower, subCharNum, subCharOthers;
 
-                nUpper = randUpper.Next(subStrStringUpper.Length);
+                nUpper = randUpper.Next(1, subStrStringUpper.Length);
                 subCharUpper = subStrStringUpper.Substring(nUpper, 1);
-                nLower = randLower.Next(subStrStringLower.Length);
+                nLower = randLower.Next(1, subStrStringLower.Length);
                 subCharLower = subStrStringLower.Substring(nLower, 1);
-                nNum = randNum.Next(subStrStringNum.Length);
+                nNum = randNum.Next(1, subStrStringNum.Length);
                 subCharNum = subStrStringNum.Substring(nNum, 1);
-                nOthers = randOthers.Next(subStrStringOthers.Length);
+                nOthers = randOthers.Next(1, subStrStringOthers.Length);
                 subCharOthers = subStrStringOthers.Substring(nOthers, 1);//分别从大写、小写、数字、其他字符中随机取出的一个字符
 
-                nUpper = randUpper.Next(Decimal.ToInt32(NumLen_10Prv.Value));
-                nLower = randLower.Next(Decimal.ToInt32(NumLen_10Prv.Value));
-                nNum = randNum.Next(Decimal.ToInt32(NumLen_10Prv.Value));
-                nOthers = randOthers.Next(Decimal.ToInt32(NumLen_10Prv.Value));//随机生成的不大于密码长度整数
+                nUpper = randUpper.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                nLower = randLower.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                nNum = randNum.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                nOthers = randOthers.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));//随机生成的不大于密码长度整数
 
                 if (ChkUpper_10Prv.Checked)
                 {
@@ -161,12 +162,13 @@ namespace PassGen_10Prv
                 else
                     nOthers = 0;
                 //生成包括随机密码可用的所有字符串strString，并确保随机生成的整数不相等
+                //nUpper意思为此位置的字符为大写，nLower为此位置的字符是小写，nNum、nOthers类同
 
                 for (int i = 1; i <= Decimal.ToInt32(NumLen_10Prv.Value); i++)//按照用户选择的密码长度生成随机密码循环
                 {
                     n = randString.Next(1, strString.Length);//随机生成不大于strString长度的一个整数
                     if (i == nUpper)
-                        strPassword += subCharUpper;
+                        strPassword += subCharUpper; //在第nUpper位时从大写字符库中随机抽一个，下同
                     else if (i == nLower)
                         strPassword += subCharLower;
                     else if (i == nNum)
@@ -182,7 +184,7 @@ namespace PassGen_10Prv
                   {
                       subStrString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                       StrString += subStrString;
-                      n = rand.Next(1, subStrString.Length);
+                      n = rand.Next(1,1, subStrString.Length);
                       //               subStrString = StrString.Substring(n2, 1);
                       strPassword = genPass(NumLen_10Prv.Value, n, StrString, subStrString);
                   }
@@ -190,20 +192,20 @@ namespace PassGen_10Prv
                   {
                       subStrString = "abcdefghijklmnopqrstuvwxyz";
                       StrString += subStrString;
-                      n2 = rand.Next(1, subStrString.Length);
+                      n2 = rand.Next(1,1, subStrString.Length);
                       subStrString = StrString.Substring(n2, 1);
                   }
                   if (ChkNum_10Prv.Checked)
                   {
                       subStrString = "0123456789";
                       StrString += subStrString;
-                      n2 = rand.Next(1, subStrString.Length);
+                      n2 = rand.Next(1,1, subStrString.Length);
                       subStrString = StrString.Substring(n2, 1);
                   }
                   if (ChkOthers_10Prv.Checked)
                   {
                       StrString += TxtOthers_10Prv.Text;
-                      n2 = rand.Next(1, StrString.Length);
+                      n2 = rand.Next(1,1, StrString.Length);
                       subStrString = StrString.Substring(n2, 1);
                   }
                 */
@@ -212,7 +214,7 @@ namespace PassGen_10Prv
             }
         }
 
-        private void DisableChkBox(bool bolUpper, bool bolLower, bool bolNum, bool bolOth)
+        private void DisableChkBoxes(bool bolUpper, bool bolLower, bool bolNum, bool bolOth)
         {
             if (!bolOth & !bolLower & !bolNum)
                 ChkUpper_10Prv.Enabled = false;
@@ -223,7 +225,8 @@ namespace PassGen_10Prv
             if (!bolUpper & !bolLower & !bolNum)
                 ChkOthers_10Prv.Enabled = false;
         }
-        private void EnableChkBox()
+
+        private void EnableChkBoxes()
         {
             ChkUpper_10Prv.Enabled = true;
             ChkLower_10Prv.Enabled = true;
@@ -260,7 +263,7 @@ namespace PassGen_10Prv
             {
                 if (i != n2)
                 {
-                    n1 = rand.Next(1, StrString.Length);
+                    n1 = rand.Next(1,1, StrString.Length);
                     strPassword = StrString.Substring(n1, 1);
                 }
                 else

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PassGen-10Prv")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b448b9b1348f88d06b53eceef6e9c9459ce1673b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c52d93df77f928d60159bb5f18e90339328ce2cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("PassGen-10Prv")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PassGen-10Prv")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
