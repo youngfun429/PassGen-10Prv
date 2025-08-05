@@ -302,8 +302,10 @@ namespace PassGen_10Prv
 
             if (NumLen_10Prv.Value <= 15)
                 TxtPassword_10Prv.Font = new Font("Courier New", 40);
-            else if (NumLen_10Prv.Value > 15 && NumLen_10Prv.Value <= 25)
+            else if (NumLen_10Prv.Value > 15 && NumLen_10Prv.Value <= 27)
                 TxtPassword_10Prv.Font = new Font("Courier New", 30);
+            else if (NumLen_10Prv.Value > 27 && NumLen_10Prv.Value <= 40)
+                TxtPassword_10Prv.Font = new Font("Courier New", 20);
             else
                 TxtPassword_10Prv.Font = new Font("Courier New", 10);
             //根据密码长度设置密码框字体大小 

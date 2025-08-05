@@ -76,7 +76,7 @@
             // 
             NumLen_10Prv.Location = new Point(171, 201);
             NumLen_10Prv.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
-            NumLen_10Prv.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
+            NumLen_10Prv.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
             NumLen_10Prv.Name = "NumLen_10Prv";
             NumLen_10Prv.Size = new Size(120, 23);
             NumLen_10Prv.TabIndex = 3;
@@ -208,9 +208,9 @@
             rBtUNEvenDisDeli.AutoSize = true;
             rBtUNEvenDisDeli.Location = new Point(13, 78);
             rBtUNEvenDisDeli.Name = "rBtUNEvenDisDeli";
-            rBtUNEvenDisDeli.Size = new Size(237, 21);
+            rBtUNEvenDisDeli.Size = new Size(165, 21);
             rBtUNEvenDisDeli.TabIndex = 13;
-            rBtUNEvenDisDeli.Text = "每6个字符插入一个分隔符，不平均分布";
+            rBtUNEvenDisDeli.Text = "每6个字符插入一个分隔符";
             rBtUNEvenDisDeli.UseVisualStyleBackColor = true;
             rBtUNEvenDisDeli.CheckedChanged += rBtUNEvenDisDeli_CheckedChanged;
             // 
