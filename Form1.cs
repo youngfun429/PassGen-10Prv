@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 namespace PassGen_10Prv
 {
     public partial class FrmPassGen_10Prv : Form

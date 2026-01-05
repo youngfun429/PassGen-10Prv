@@ -15,3 +15,20 @@ D:\Documents\GitHub\youngfun429\PassGen-10Prv\obj\Debug\net10.0-windows\refint\P
 D:\Documents\GitHub\youngfun429\PassGen-10Prv\obj\Debug\net10.0-windows\PassGen-10Prv.pdb
 D:\Documents\GitHub\youngfun429\PassGen-10Prv\obj\Debug\net10.0-windows\PassGen-10Prv.genruntimeconfig.cache
 D:\Documents\GitHub\youngfun429\PassGen-10Prv\obj\Debug\net10.0-windows\ref\PassGen-10Prv.dll
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\bin\Debug\net10.0-windows\PassGen-10Prv.exe
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\bin\Debug\net10.0-windows\PassGen-10Prv.deps.json
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\bin\Debug\net10.0-windows\PassGen-10Prv.runtimeconfig.json
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\bin\Debug\net10.0-windows\PassGen-10Prv.dll
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\bin\Debug\net10.0-windows\PassGen-10Prv.pdb
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen_10Prv.FrmPassGen_10Prv.resources
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.csproj.GenerateResource.cache
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.AssemblyInfoInputs.cache
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.AssemblyInfo.cs
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.csproj.CoreCompileInputs.cache
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.sourcelink.json
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.dll
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\refint\PassGen-10Prv.dll
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.pdb
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\PassGen-10Prv.genruntimeconfig.cache
+D:\Documents\Visual Studio 2022 Preview\PassGen-10Prv - 分隔符\obj\Debug\net10.0-windows\ref\PassGen-10Prv.dll

@@ -154,7 +154,7 @@
             TxtOthers_10Prv.Size = new Size(310, 28);
             TxtOthers_10Prv.TabIndex = 0;
             TxtOthers_10Prv.TabStop = false;
-            TxtOthers_10Prv.Text = "~!@#$%^&*+-/.,\\{}[]();:";
+            TxtOthers_10Prv.Text = "~!@#$%^&*+-/.,\\{}[]();:_";
             TxtOthers_10Prv.TextChanged += TxtOthers_10Prv_TextChanged;
             // 
             // BtnGen_10Prv
