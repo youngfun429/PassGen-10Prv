@@ -74,7 +74,7 @@
             // 
             // NumLen_10Prv
             // 
-            NumLen_10Prv.Location = new Point(171, 201);
+            NumLen_10Prv.Location = new Point(131, 201);
             NumLen_10Prv.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
             NumLen_10Prv.Minimum = new decimal(new int[] { 6, 0, 0, 0 });
             NumLen_10Prv.Name = "NumLen_10Prv";
@@ -87,7 +87,7 @@
             // LblLen_10Prv
             // 
             LblLen_10Prv.AutoSize = true;
-            LblLen_10Prv.Location = new Point(93, 204);
+            LblLen_10Prv.Location = new Point(53, 204);
             LblLen_10Prv.Name = "LblLen_10Prv";
             LblLen_10Prv.Size = new Size(71, 17);
             LblLen_10Prv.TabIndex = 2;
@@ -98,7 +98,7 @@
             ChkUpper_10Prv.AutoSize = true;
             ChkUpper_10Prv.Checked = true;
             ChkUpper_10Prv.CheckState = CheckState.Checked;
-            ChkUpper_10Prv.Location = new Point(141, 237);
+            ChkUpper_10Prv.Location = new Point(91, 237);
             ChkUpper_10Prv.Name = "ChkUpper_10Prv";
             ChkUpper_10Prv.Size = new Size(120, 21);
             ChkUpper_10Prv.TabIndex = 4;
@@ -111,7 +111,7 @@
             ChkLower_10Prv.AutoSize = true;
             ChkLower_10Prv.Checked = true;
             ChkLower_10Prv.CheckState = CheckState.Checked;
-            ChkLower_10Prv.Location = new Point(142, 271);
+            ChkLower_10Prv.Location = new Point(92, 271);
             ChkLower_10Prv.Name = "ChkLower_10Prv";
             ChkLower_10Prv.Size = new Size(115, 21);
             ChkLower_10Prv.TabIndex = 5;
@@ -124,7 +124,7 @@
             ChkNum_10Prv.AutoSize = true;
             ChkNum_10Prv.Checked = true;
             ChkNum_10Prv.CheckState = CheckState.Checked;
-            ChkNum_10Prv.Location = new Point(153, 305);
+            ChkNum_10Prv.Location = new Point(103, 305);
             ChkNum_10Prv.Name = "ChkNum_10Prv";
             ChkNum_10Prv.Size = new Size(96, 21);
             ChkNum_10Prv.TabIndex = 6;
@@ -196,21 +196,21 @@
             gBxDelimiter.Controls.Add(rBtUNEvenDisDeli);
             gBxDelimiter.Controls.Add(rBtEvenDisDeli);
             gBxDelimiter.Controls.Add(rBtNoDeli);
-            gBxDelimiter.Location = new Point(345, 211);
+            gBxDelimiter.Location = new Point(257, 211);
             gBxDelimiter.Name = "gBxDelimiter";
-            gBxDelimiter.Size = new Size(362, 109);
+            gBxDelimiter.Size = new Size(491, 115);
             gBxDelimiter.TabIndex = 12;
             gBxDelimiter.TabStop = false;
-            gBxDelimiter.Text = "分隔符(\"-\")设置(密码长度大于10时有分隔符)";
+            gBxDelimiter.Text = "分隔符(\"-\")设置(密码长度大于10，并且勾选\"特殊字符\"时才可以设置分隔符选项)";
             // 
             // rBtUNEvenDisDeli
             // 
             rBtUNEvenDisDeli.AutoSize = true;
             rBtUNEvenDisDeli.Location = new Point(13, 78);
             rBtUNEvenDisDeli.Name = "rBtUNEvenDisDeli";
-            rBtUNEvenDisDeli.Size = new Size(165, 21);
+            rBtUNEvenDisDeli.Size = new Size(189, 21);
             rBtUNEvenDisDeli.TabIndex = 13;
-            rBtUNEvenDisDeli.Text = "每6个字符插入一个分隔符";
+            rBtUNEvenDisDeli.Text = "每6个字符强制插入一个分隔符";
             rBtUNEvenDisDeli.UseVisualStyleBackColor = true;
             rBtUNEvenDisDeli.CheckedChanged += rBtUNEvenDisDeli_CheckedChanged;
             // 

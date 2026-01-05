@@ -103,7 +103,7 @@ namespace PassGen_10Prv
                     else
                         nDelimiter = 6;
                     break;
-                case 3: //不均匀分隔符，每6个字符分隔一次，并且最后一个字符不是分隔符，即最后一个分隔符之后的密码长度最大为6，其余分隔符之间的密码长度为5
+                case 3: //不均匀分隔符，每6个字符分隔一次，并且最后一个字符不是分隔符，即最后一个分隔符之后的密码长度最大为6，其余分隔符之间的密码长度为5 
                     nDelimiter = 6;
                     break;
             }
@@ -114,145 +114,153 @@ namespace PassGen_10Prv
                     'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                     '1','2','3','4','5','6','7','8','9','0',' '
                 ];
-            for (int j = 0; j < TxtOthers_10Prv.Text.Length; j++)
+            if (TxtOthers_10Prv.Text.Length == 0)
             {
-                if (((int)TxtOthers_10Prv.Text[j] > 127) | (TxtOthers_10Prv.Text.IndexOfAny(chars) >= 0))
-                {
-                    MessageBox.Show("特殊字符框中不能包含 大小写、数字、空格、汉字、全角 字符");
-                    bolInclNonOthers = true;
-                    break;
-                }
+                MessageBox.Show("特殊字符框不能为空，请输入特殊字符，或者清除勾选特殊字符");
             }
-            if (!bolInclNonOthers)
+            else
             {
-                BtnCopy_10Prv.Enabled = true;
-                string strString = "", strPassword = "";
-                int n;
-                int nUpper, nLower, nNum, nOthers;//随机生成的整数
-                string subStrStringUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", //大写
-                    subStrStringLower = "abcdefghijklmnopqrstuvwxyz", //小写
-                    subStrStringNum = "0123456789", //数字
-                    subStrStringOthers = TxtOthers_10Prv.Text;//其他字符
-                string subCharUpper, subCharLower, subCharNum, subCharOthers;
 
-                //nUpper = randUpper.Next(1, subStrStringUpper.Length);
-                nUpper = Random.Shared.Next(1, subStrStringUpper.Length);//将Random.Next方法替换为Random.Shared.Next方法
-                subCharUpper = subStrStringUpper.Substring(nUpper, 1);
-                //nLower = randLower.Next(1, subStrStringLower.Length);
-                nLower = Random.Shared.Next(1, subStrStringLower.Length);
-                subCharLower = subStrStringLower.Substring(nLower, 1);
-                //nNum = randNum.Next(1, subStrStringNum.Length);
-                nNum = Random.Shared.Next(1, subStrStringNum.Length);
-                subCharNum = subStrStringNum.Substring(nNum, 1);
-                //nOthers = randOthers.Next(1, subStrStringOthers.Length);
-                nOthers = Random.Shared.Next(1, subStrStringOthers.Length);
-                subCharOthers = subStrStringOthers.Substring(nOthers, 1);//分别从大写、小写、数字、其他字符中随机取出的一个字符
-
-                nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));//随机生成的不大于密码长度整数
-
-                if (nDelimiter == 0)
+                for (int j = 0; j < TxtOthers_10Prv.Text.Length; j++)
                 {
-                    if (ChkUpper_10Prv.Checked)
+                    if (((int)TxtOthers_10Prv.Text[j] > 127) | (TxtOthers_10Prv.Text.IndexOfAny(chars) >= 0))
                     {
-                        strString += subStrStringUpper;
-                        while ((nUpper == nLower) | (nUpper == nNum) | (nUpper == nOthers))
-                            nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        MessageBox.Show("特殊字符框中不能包含 大小写、数字、空格、汉字、全角 字符");
+                        bolInclNonOthers = true;
+                        break;
                     }
-                    else
-                        nUpper = 0;
-                    if (ChkLower_10Prv.Checked)
-                    {
-                        strString += subStrStringLower;
-                        while ((nLower == nUpper) | (nLower == nNum) | (nLower == nOthers))
-                            nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nLower = 0;
-                    if (ChkNum_10Prv.Checked)
-                    {
-                        strString += subStrStringNum;
-                        while ((nNum == nUpper) | (nNum == nLower) | (nNum == nOthers))
-                            nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nNum = 0;
-                    if (ChkOthers_10Prv.Checked)
-                    {
-                        strString += subStrStringOthers;
-                        while ((nOthers == nUpper) | (nOthers == nLower) | (nOthers == nNum))
-                            nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nOthers = 0;
                 }
-                else
+                if (!bolInclNonOthers)
                 {
-                    if (ChkUpper_10Prv.Checked)
-                    {
-                        strString += subStrStringUpper;
-                        while ((nUpper == nLower) | (nUpper == nNum) | (nUpper == nOthers) | (nUpper % nDelimiter == 0))
-                            nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nUpper = 0;
-                    if (ChkLower_10Prv.Checked)
-                    {
-                        strString += subStrStringLower;
-                        while ((nLower == nUpper) | (nLower == nNum) | (nLower == nOthers) | (nLower % nDelimiter == 0))
-                            nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nLower = 0;
-                    if (ChkNum_10Prv.Checked)
-                    {
-                        strString += subStrStringNum;
-                        while ((nNum == nUpper) | (nNum == nLower) | (nNum == nOthers) | (nNum % nDelimiter == 0))
-                            nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nNum = 0;
-                    if (ChkOthers_10Prv.Checked)
-                    {
-                        strString += subStrStringOthers;
-                        while ((nOthers == nUpper) | (nOthers == nLower) | (nOthers == nNum) | (nOthers % nDelimiter == 0))
-                            nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
-                    }
-                    else
-                        nOthers = 0;
-                }
-                //生成包括随机密码可用的所有字符串strString，并确保随机生成的整数nUpper、nLower、nNum、nOthers除0外互不相等，而且不是分隔符的位置
-                //nUpper意思为此位置的字符为大写，nLower为此位置的字符是小写，nNum、nOthers类同
-                //即保证随机密码中至少包含一个所需要的字符
-                //nUpper、nLower、nNum、nOthers若为0，则表示不包含对应的字符类型
+                    BtnCopy_10Prv.Enabled = true;
+                    string strString = "", strPassword = "";
+                    int n;
+                    int nUpper, nLower, nNum, nOthers;//随机生成的整数
+                    string subStrStringUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", //大写
+                        subStrStringLower = "abcdefghijklmnopqrstuvwxyz", //小写
+                        subStrStringNum = "1234567890", //数字
+                        subStrStringOthers = TxtOthers_10Prv.Text;//其他字符
+                    string subCharUpper, subCharLower, subCharNum, subCharOthers;
 
-                for (int i = 1; i <= Decimal.ToInt32(NumLen_10Prv.Value); i++)//按照用户选择的密码长度生成随机密码循环
-                {
-                    if (nDelimiter != 0 && i % nDelimiter == 0 && i != Decimal.ToInt32(NumLen_10Prv.Value))
-                        strPassword += "-";
+                    //nUpper = randUpper.Next(1, subStrStringUpper.Length);
+                    nUpper = Random.Shared.Next(1, subStrStringUpper.Length);//将Random.Next方法替换为Random.Shared.Next方法
+                    subCharUpper = subStrStringUpper.Substring(nUpper - 1, 1);
+                    //nLower = randLower.Next(1, subStrStringLower.Length);
+                    nLower = Random.Shared.Next(1, subStrStringLower.Length);
+                    subCharLower = subStrStringLower.Substring(nLower - 1, 1);
+                    //nNum = randNum.Next(1, subStrStringNum.Length);
+                    nNum = Random.Shared.Next(1, subStrStringNum.Length);
+                    subCharNum = subStrStringNum.Substring(nNum - 1, 1);
+                    //nOthers = randOthers.Next(1, subStrStringOthers.Length);
+                    nOthers = Random.Shared.Next(1, subStrStringOthers.Length);
+                    subCharOthers = subStrStringOthers.Substring(nOthers - 1, 1);//分别从大写、小写、数字、其他字符中随机取出的一个字符
+
+                    nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                    nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                    nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                    nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));//随机生成的不大于密码长度整数
+
+                    if (nDelimiter == 0)
+                    {
+                        if (ChkUpper_10Prv.Checked)
+                        {
+                            strString += subStrStringUpper;
+                            while ((nUpper == nLower) | (nUpper == nNum) | (nUpper == nOthers))
+                                nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nUpper = 0;
+                        if (ChkLower_10Prv.Checked)
+                        {
+                            strString += subStrStringLower;
+                            while ((nLower == nUpper) | (nLower == nNum) | (nLower == nOthers))
+                                nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nLower = 0;
+                        if (ChkNum_10Prv.Checked)
+                        {
+                            strString += subStrStringNum;
+                            while ((nNum == nUpper) | (nNum == nLower) | (nNum == nOthers))
+                                nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nNum = 0;
+                        if (ChkOthers_10Prv.Checked)
+                        {
+                            strString += subStrStringOthers;
+                            while ((nOthers == nUpper) | (nOthers == nLower) | (nOthers == nNum))
+                                nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nOthers = 0;
+                    }
                     else
                     {
-                        if (i == nUpper)
-                            strPassword += subCharUpper;
-                        else if (i == nLower)
-                            strPassword += subCharLower;
-                        else if (i == nNum)
-                            strPassword += subCharNum;
-                        else if (i == nOthers)
-                            strPassword += subCharOthers;
+                        if (ChkUpper_10Prv.Checked)
+                        {
+                            strString += subStrStringUpper;
+                            while ((nUpper == nLower) | (nUpper == nNum) | (nUpper == nOthers) | (nUpper % nDelimiter == 0))
+                                nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nUpper = 0;
+                        if (ChkLower_10Prv.Checked)
+                        {
+                            strString += subStrStringLower;
+                            while ((nLower == nUpper) | (nLower == nNum) | (nLower == nOthers) | (nLower % nDelimiter == 0))
+                                nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nLower = 0;
+                        if (ChkNum_10Prv.Checked)
+                        {
+                            strString += subStrStringNum;
+                            while ((nNum == nUpper) | (nNum == nLower) | (nNum == nOthers) | (nNum % nDelimiter == 0))
+                                nNum = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nNum = 0;
+                        if (ChkOthers_10Prv.Checked)
+                        {
+                            strString += subStrStringOthers;
+                            while ((nOthers == nUpper) | (nOthers == nLower) | (nOthers == nNum) | (nOthers % nDelimiter == 0))
+                                nOthers = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
+                        }
+                        else
+                            nOthers = 0;
+                    }
+                    //生成包括随机密码可用的所有字符串strString，并确保随机生成的整数nUpper、nLower、nNum、nOthers除0外互不相等，而且不是分隔符的位置
+                    //nUpper意思为此位置的字符为大写，nLower为此位置的字符是小写，nNum、nOthers类同
+                    //即保证随机密码中至少包含一个所需要的字符
+                    //nUpper、nLower、nNum、nOthers若为0，则表示不包含对应的字符类型
+
+                    for (int i = 1; i <= Decimal.ToInt32(NumLen_10Prv.Value); i++)//按照用户选择的密码长度生成随机密码循环
+                    {
+                        if (nDelimiter != 0 && i % nDelimiter == 0 && i != Decimal.ToInt32(NumLen_10Prv.Value))
+                            strPassword += "-";
                         else
                         {
-                            n = Random.Shared.Next(1, strString.Length);//随机生成不大于strString长度的一个整数
-                            strPassword += strString.Substring(n, 1);//从strString中随机取出一个字符
+                            if (i == nUpper)
+                                strPassword += subCharUpper;
+                            else if (i == nLower)
+                                strPassword += subCharLower;
+                            else if (i == nNum)
+                                strPassword += subCharNum;
+                            else if (i == nOthers)
+                                strPassword += subCharOthers;
+                            else
+                            {
+                                n = Random.Shared.Next(1, strString.Length);//随机生成不大于strString长度的一个整数
+                                strPassword += strString.Substring(n, 1);//从strString中随机取出一个字符
+                            }
                         }
                     }
+
+
+                    TxtPassword_10Prv.Text = strPassword;
+                    BtnGen_10Prv.Text = "重新生成随机密码(&G)";
                 }
-
-
-                TxtPassword_10Prv.Text = strPassword;
-                BtnGen_10Prv.Text = "重新生成随机密码(&G)";
             }
         }
 
@@ -283,7 +291,7 @@ namespace PassGen_10Prv
 
         private void BtnResetOth_10Prv_Click(object sender, EventArgs e)
         {
-            TxtOthers_10Prv.Text = "~!@#$%^&*+-/.,\\{}[]();:";
+            TxtOthers_10Prv.Text = "~!@#$%^&*+-/.,\\{}[]();:_";
             BtnResetOth_10Prv.Enabled = false;
         }
 
