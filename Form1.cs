@@ -71,6 +71,8 @@ namespace PassGen_10Prv
                 TxtOthers_10Prv.Enabled = true;
                 BtnGen_10Prv.Enabled = true;
                 BtnGen_10Prv.Text = "重新生成随机密码(&G)";
+                TxtOthers_10Prv.Text="~!@#$%^&*+-/.,\\{}[]();:_";
+                BtnResetOth_10Prv.Enabled = false;
                 EnableChkBoxes();
             }
             else
@@ -88,7 +90,7 @@ namespace PassGen_10Prv
         {
             bool bolInclNonOthers = false;
 
-            switch (radioButtonSel)
+            switch (radioButtonSel)//分隔符选项
             {
                 case 1: //无分隔符
                     nDelimiter = 0;
@@ -114,13 +116,12 @@ namespace PassGen_10Prv
                     'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                     '1','2','3','4','5','6','7','8','9','0',' '
                 ];
-            if (TxtOthers_10Prv.Text.Length == 0)
+            if (TxtOthers_10Prv.Text.Length == 0 && ChkOthers_10Prv.Checked)
             {
                 MessageBox.Show("特殊字符框不能为空，请输入特殊字符，或者清除勾选特殊字符");
             }
             else
             {
-
                 for (int j = 0; j < TxtOthers_10Prv.Text.Length; j++)
                 {
                     if (((int)TxtOthers_10Prv.Text[j] > 127) | (TxtOthers_10Prv.Text.IndexOfAny(chars) >= 0))
@@ -140,7 +141,7 @@ namespace PassGen_10Prv
                         subStrStringLower = "abcdefghijklmnopqrstuvwxyz", //小写
                         subStrStringNum = "1234567890", //数字
                         subStrStringOthers = TxtOthers_10Prv.Text;//其他字符
-                    string subCharUpper, subCharLower, subCharNum, subCharOthers;
+                    string subCharUpper, subCharLower, subCharNum, subCharOthers="";
 
                     //nUpper = randUpper.Next(1, subStrStringUpper.Length);
                     nUpper = Random.Shared.Next(1, subStrStringUpper.Length);//将Random.Next方法替换为Random.Shared.Next方法
@@ -151,9 +152,12 @@ namespace PassGen_10Prv
                     //nNum = randNum.Next(1, subStrStringNum.Length);
                     nNum = Random.Shared.Next(1, subStrStringNum.Length);
                     subCharNum = subStrStringNum.Substring(nNum - 1, 1);
-                    //nOthers = randOthers.Next(1, subStrStringOthers.Length);
-                    nOthers = Random.Shared.Next(1, subStrStringOthers.Length);
-                    subCharOthers = subStrStringOthers.Substring(nOthers - 1, 1);//分别从大写、小写、数字、其他字符中随机取出的一个字符
+                    if (subStrStringOthers.Length > 0)
+                    {
+                        //nOthers = randOthers.Next(1, subStrStringOthers.Length);
+                        nOthers = Random.Shared.Next(1, subStrStringOthers.Length);
+                        subCharOthers = subStrStringOthers.Substring(nOthers - 1, 1);//分别从大写、小写、数字、其他字符中随机取出的一个字符
+                    }
 
                     nUpper = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
                     nLower = Random.Shared.Next(1, Decimal.ToInt32(NumLen_10Prv.Value));
